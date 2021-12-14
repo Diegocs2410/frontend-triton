@@ -1,10 +1,15 @@
+import Header from "./components/Header";
+import Main from "./components/Main";
 import Navbar from "./components/Navbar";
+import Solucion from "./components/Solucion";
 
 function App() {
   return (
     <>
       <Navbar />
-      <h1>Hello World</h1>
+      <Header />
+      <Main />
+      <Solucion />
     </>
   );
 }

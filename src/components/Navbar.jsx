@@ -1,12 +1,17 @@
+import BrandImg from "../img/header/DataFishing2.png";
 const Navbar = () => {
   return (
-    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-          Data Fishing
+    <nav className="navbar navbar-expand-md navbar-dark bg-primary">
+      <div className="container">
+        <a className="navbar-brand" href="/">
+          <img
+            src={BrandImg}
+            alt="Imagen Titulo Data Fishing"
+            className="figure-img img-fluid rounded img-brand"
+          />
         </a>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarColor01"
@@ -14,29 +19,29 @@ const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarColor01">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">
+        <div className="collapse navbar-collapse" id="navbarColor01">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item active">
+              <a className="nav-link" href="/">
                 Home
-                <span class="visually-hidden">(current)</span>
+                <span className="visually-hidden">(current)</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/">
+            <li className="nav-item">
+              <a className="nav-link" href="/">
                 Nosotros
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/">
+            <li className="nav-item">
+              <a className="nav-link" href="/">
                 Presentación
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/">
+            <li className="nav-item">
+              <a className="nav-link" href="/">
                 Registro
               </a>
             </li>
