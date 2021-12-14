@@ -1,4 +1,6 @@
 import BrandImg from "../img/header/DataFishing2.png";
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-primary">
@@ -41,9 +43,9 @@ const Navbar = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <Link className="nav-link" to="/signup">
                 Registro
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
