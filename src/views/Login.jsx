@@ -1,45 +1,12 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const initialState = {
-  name: "",
-  email: "",
-  password: "",
-};
-
-const Signup = () => {
-  const [userData, setUserData] = useState(initialState);
-  const { email, name, password } = userData;
-
-  //   HandleChange
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-  };
-
+const Login = () => {
   return (
     <div className="container min-vh-100 d-grid">
       <form className="my-auto">
         <div className="card w-50 mx-auto shadow">
           <fieldset className="w-75 mx-auto my-5">
-            <legend className="text-center display-5">Registro</legend>
-            <div className="form-group mt-2">
-              <label for="name">Nombre Completo</label>
-              <input
-                type="text"
-                className="form-control"
-                id="name"
-                aria-describedby="nameHelp"
-                placeholder="EJ: Juan Rodríguez"
-                minLength={3}
-                name="name"
-                value={name}
-                onChange={handleChange}
-                required
-              />
-              <small id="emailHelp" className="form-text text-muted">
-                No compartiremos tu correo con
-              </small>
-            </div>
+            <legend className="text-center display-5">Login</legend>
             <div className="form-group mt-2">
               <label for="exampleInputEmail1">Email address</label>
               <input
@@ -49,7 +16,6 @@ const Signup = () => {
                 aria-describedby="emailHelp"
                 placeholder="Enter email"
                 name="email"
-                value={email}
                 required
               />
               <small id="emailHelp" className="form-text text-muted">
@@ -66,21 +32,20 @@ const Signup = () => {
                 minLength={8}
                 name="password"
                 required
-                value={password}
               />
             </div>
-            <Link className="link-info mt-2 d-inline-block" to="/login">
-              ¿Ya tienes cuenta? Inicia sesión
+            <Link className="link-info d-inline-block mt-2" to="/signup">
+              ¿No tienes cuenta aún? Registrate
             </Link>
             <button type="submit" className="btn btn-primary mt-2 form-control">
-              Registrar
+              Iniciar Sesión
             </button>
             <Link
               to="/"
               role="button"
               className="btn btn-secondary form-control mt-2"
             >
-              Volver
+              Cancelar
             </Link>
           </fieldset>
         </div>
@@ -89,4 +54,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;
