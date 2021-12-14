@@ -14,6 +14,10 @@ const Signup = () => {
   //   HandleChange
   const handleChange = (e) => {
     const { name, value } = e.target;
+    setUserData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
   return (
@@ -23,7 +27,7 @@ const Signup = () => {
           <fieldset className="w-75 mx-auto my-5">
             <legend className="text-center display-5">Registro</legend>
             <div className="form-group mt-2">
-              <label for="name">Nombre Completo</label>
+              <label htmlFor="name">Nombre Completo</label>
               <input
                 type="text"
                 className="form-control"
@@ -41,7 +45,7 @@ const Signup = () => {
               </small>
             </div>
             <div className="form-group mt-2">
-              <label for="exampleInputEmail1">Email address</label>
+              <label htmlFor="exampleInputEmail1">Email address</label>
               <input
                 type="email"
                 className="form-control"
@@ -50,6 +54,7 @@ const Signup = () => {
                 placeholder="Enter email"
                 name="email"
                 value={email}
+                onChange={handleChange}
                 required
               />
               <small id="emailHelp" className="form-text text-muted">
@@ -57,7 +62,7 @@ const Signup = () => {
               </small>
             </div>
             <div className="form-group mt-2">
-              <label for="exampleInputPassword1">Password</label>
+              <label htmlFor="exampleInputPassword1">Password</label>
               <input
                 type="password"
                 className="form-control"
@@ -67,6 +72,7 @@ const Signup = () => {
                 name="password"
                 required
                 value={password}
+                onChange={handleChange}
               />
             </div>
             <Link className="link-info mt-2 d-inline-block" to="/login">

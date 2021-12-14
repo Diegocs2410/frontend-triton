@@ -1,6 +1,24 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
+const initialState = {
+  name: "",
+  email: "",
+  password: "",
+};
+
 const Login = () => {
+  const [userData, setUserData] = useState(initialState);
+  const { email, password } = userData;
+
+  //   HandleChange
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
   return (
     <div className="container min-vh-100 d-grid">
       <form className="my-auto">
@@ -8,7 +26,7 @@ const Login = () => {
           <fieldset className="w-75 mx-auto my-5">
             <legend className="text-center display-5">Login</legend>
             <div className="form-group mt-2">
-              <label for="exampleInputEmail1">Email address</label>
+              <label htmlFor="exampleInputEmail1">Email address</label>
               <input
                 type="email"
                 className="form-control"
@@ -16,6 +34,8 @@ const Login = () => {
                 aria-describedby="emailHelp"
                 placeholder="Enter email"
                 name="email"
+                value={email}
+                onChange={handleChange}
                 required
               />
               <small id="emailHelp" className="form-text text-muted">
@@ -23,7 +43,7 @@ const Login = () => {
               </small>
             </div>
             <div className="form-group mt-2">
-              <label for="exampleInputPassword1">Password</label>
+              <label htmlFor="exampleInputPassword1">Password</label>
               <input
                 type="password"
                 className="form-control"
@@ -31,6 +51,8 @@ const Login = () => {
                 placeholder="Password"
                 minLength={8}
                 name="password"
+                value={password}
+                onChange={handleChange}
                 required
               />
             </div>
