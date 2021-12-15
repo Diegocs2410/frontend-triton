@@ -24,7 +24,6 @@ export const AuthProvider = ({ children }) => {
     try {
       setIsLoading(true);
       const { data } = await axios.post("/users/login", userD);
-      console.log(data);
       setIsLoading(false);
       // Now, capture the "ok" property and check if it's true'
       if (data.status === "success") {
