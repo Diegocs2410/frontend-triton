@@ -1,7 +1,11 @@
 import BrandImg from "../img/header/DataFishing2.png";
 import { Link } from "react-router-dom";
+import useUser from "../context/UserContext";
 
 const Navbar = () => {
+  const { logoutUser, user } = useUser();
+  const { login, name } = user;
+  console.log(user);
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-primary">
       <div className="container">
@@ -42,10 +46,27 @@ const Navbar = () => {
                 Presentación
               </a>
             </li>
+            {login && (
+              <li className="nav-item">
+                <Link className="nav-link" to="/faena">
+                  Ingresar Faena
+                </Link>
+              </li>
+            )}
             <li className="nav-item">
-              <Link className="nav-link" to="/signup">
-                Login / Registro
-              </Link>
+              {login ? (
+                <Link
+                  className="nav-link text-capitalize"
+                  to="/"
+                  onClick={logoutUser}
+                >
+                  {name} Salir
+                </Link>
+              ) : (
+                <Link className="nav-link" to="/signup">
+                  Login / Registro
+                </Link>
+              )}
             </li>
           </ul>
         </div>

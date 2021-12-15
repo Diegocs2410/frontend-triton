@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useUser from "../context/UserContext";
 
 const initialState = {
   name: "",
@@ -10,6 +11,8 @@ const initialState = {
 const Login = () => {
   const [userData, setUserData] = useState(initialState);
   const { email, password } = userData;
+  const navigate = useNavigate();
+  const { loginUser } = useUser();
 
   //   HandleChange
   const handleChange = (e) => {
@@ -19,9 +22,15 @@ const Login = () => {
       [name]: value,
     }));
   };
+  // HandleSubmit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    loginUser(userData, navigate);
+  };
+
   return (
     <div className="container min-vh-100 d-grid">
-      <form className="my-auto">
+      <form className="my-auto" onSubmit={handleSubmit}>
         <div className="card w-50 mx-auto shadow">
           <fieldset className="w-75 mx-auto my-5">
             <legend className="text-center display-5">Login</legend>
