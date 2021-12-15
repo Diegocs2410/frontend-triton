@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useUser from "../context/UserContext";
 
 const initialState = {
   name: "",
@@ -9,16 +10,24 @@ const initialState = {
 
 const Signup = () => {
   const [userData, setUserData] = useState(initialState);
+  const { registerUser } = useUser();
+  const navigate = useNavigate();
   const { email, name, password } = userData;
 
+  // HandleSubmit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    registerUser(userData, navigate);
+  };
   //   HandleChange
   const handleChange = (e) => {
     const { name, value } = e.target;
+    setUserData({ ...userData, [name]: value });
   };
 
   return (
     <div className="container min-vh-100 d-grid">
-      <form className="my-auto">
+      <form className="my-auto" onSubmit={handleSubmit}>
         <div className="card w-50 mx-auto shadow">
           <fieldset className="w-75 mx-auto my-5">
             <legend className="text-center display-5">Registro</legend>
@@ -50,6 +59,7 @@ const Signup = () => {
                 placeholder="Enter email"
                 name="email"
                 value={email}
+                onChange={handleChange}
                 required
               />
               <small id="emailHelp" className="form-text text-muted">
@@ -67,6 +77,7 @@ const Signup = () => {
                 name="password"
                 required
                 value={password}
+                onChange={handleChange}
               />
             </div>
             <Link className="link-info mt-2 d-inline-block" to="/login">
