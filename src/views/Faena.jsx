@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import moment from "moment";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Faena = () => {
   const [faena, setFaena] = useState([]);
@@ -29,7 +29,10 @@ const Faena = () => {
                 <p className="card-text">{faena.ciudad}</p>
                 <p>{moment(faena.fecha).format("MMMM Do YYYY, h:mm:ss a")}</p>
                 <p>{faena.tipo}</p>
-                <Link to={`/faenas/${faena._id}`} className="btn btn-warning me-4">
+                <Link
+                  to={`/faena/${faena._id}`}
+                  className="btn btn-warning me-4"
+                >
                   Editar
                 </Link>
                 <Link to="/" className="btn btn-danger">
@@ -39,6 +42,7 @@ const Faena = () => {
             </div>
           </div>
         ))}
+        <Outlet />
       </div>
     </div>
   );

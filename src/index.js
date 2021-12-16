@@ -10,6 +10,7 @@ import Login from "./views/Login";
 import axios from "axios";
 import { AuthProvider } from "./context/UserContext";
 import Faena from "./views/Faena";
+import FaenaSingle from "./views/FaenaSingle";
 
 axios.defaults.baseURL = "http://localhost:4000/api";
 
@@ -22,7 +23,8 @@ ReactDOM.render(
           <Route path="/" element={<App />} />
           <Route path="signup" element={<Signup />} />
           <Route path="login" element={<Login />} />
-          <Route path="faena" element={<Faena />} />
+          <Route path="faena" element={<Faena />}></Route>
+          <Route path="faena/:faenaId" element={<FaenaSingle />} />
         </Routes>
       </Router>
     </AuthProvider>
